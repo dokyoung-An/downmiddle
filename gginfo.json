@@ -5,7 +5,9 @@
 		"js": [
 			"https://www.youtube.com/iframe_api"
 		],
-		"css": []
+		"css": [
+			"https://fonts.googleapis.com/css2?family=Noto+Sans+KR&family=Noto+Serif+KR&display=swap"
+		]
 	},
 	"skin": {
 		"js": "skin.js"
@@ -14,7 +16,7 @@
 	"player": {
 		"js": "pano2vr_player.js"
 	},
-	"creationdate": "2023-11-19T04:43:12.559Z",
+	"creationdate": "2023-11-19T05:45:44.275Z",
 	"configuration": "pano.xml",
 	"preview": {
 		"img": "preview.jpg",
