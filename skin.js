@@ -1,7 +1,7 @@
 // Garden Gnome Software - Skin
 // Pano2VR 7.0.6/20004
 // Filename: drone-?????.ggsk
-// Generated 2023-11-19T13:00:54
+// Generated 2023-11-19T13:08:27
 
 function pano2vrSkin(player,base) {
 	player.addVariable('vis_traffic', 2, false, { ignoreInState: 0  });
@@ -6746,7 +6746,6 @@ function pano2vrSkin(player,base) {
 		}
 		el=me._video_1=document.createElement('div');
 		me._video_1.seekbars = [];
-			me._video_1.ggYoutubeApiReady = function() { skin.ggYoutubeApiLoaded = true;}
 		me._video_1.ggInitMedia = function(media) {
 			var notifySeekbars = function() {
 				for (var i = 0; i < me._video_1.seekbars.length; i++) {
@@ -6757,55 +6756,39 @@ function pano2vrSkin(player,base) {
 			while (me._video_1.hasChildNodes()) {
 				me._video_1.removeChild(me._video_1.lastChild);
 			}
+			if (me._video_1__vid) {
+				me._video_1__vid.pause();
+			}
 			if(media == '') {
 				notifySeekbars();
 				if (me._video_1.ggVideoNotLoaded == false && me._video_1.ggDeactivate && player.isPlaying('video_1')) { me._video_1.ggDeactivate(); }
 				me._video_1.ggVideoNotLoaded = true;
+			var mediaObj = player.getMediaObject('video_1');
+			if (mediaObj) {
+				mediaObj.autoplay = false;
+			}
 				return;
 			}
 			me._video_1.ggVideoNotLoaded = false;
-			me._video_1__vid=document.createElement('iframe');
+			me._video_1__vid=document.createElement('video');
 			me._video_1__vid.className='ggskin ggskin_video';
-			var ggYoutubeMedia = media;
-			var ggTimeParam = '';
-			if (ggYoutubeMedia.indexOf('&') != -1) {
-				ggTimeParam = 'start' + media.slice(ggYoutubeMedia.indexOf('&') + 2) + '&amp;';
-				ggYoutubeMedia = ggYoutubeMedia.slice(0, ggYoutubeMedia.indexOf('&'));
-			}
-			var ggVideoParams = '?' + ggTimeParam + 'autoplay=0&amp;controls=0&amp;loop=0&amp;enablejsapi=1&amp;rel=0';
-			var ggVideoUrl = 'https://www.youtube.com/embed/' + ggYoutubeMedia + ggVideoParams;
-			me._video_1__vid.setAttribute('src', ggVideoUrl);
 			me._video_1__vid.setAttribute('width', '100%');
 			me._video_1__vid.setAttribute('height', '100%');
-			me._video_1__vid.setAttribute('allow', 'autoplay');
-			me._video_1__vid.setAttribute('allowfullscreen', 'true');
-			me._video_1__vid.setAttribute('style', 'border:none; ; ;');
+			me._video_1__vid.setAttribute('crossOrigin', 'anonymous');
+			me._video_1__vid.setAttribute('controlsList', 'nodownload');
+			me._video_1__vid.setAttribute('oncontextmenu', 'return false;');
+			me._video_1__source=document.createElement('source');
+			me._video_1__source.setAttribute('src', media);
+			me._video_1__vid.setAttribute('playsinline', 'playsinline');
+			me._video_1__vid.setAttribute('style', ';');
+			me._video_1__vid.style.outline = 'none';
+			me._video_1__vid.appendChild(me._video_1__source);
 			me._video_1.appendChild(me._video_1__vid);
-			me._video_1__vid.id = 'youtube-video';
-			me._video_1.ggYoutubeApiReady = function() {
-				me._video_1.ggApiPlayerType = 'youtube';
-				me._video_1.ggApiPlayerReady = false;
-				me._video_1.ggApiPlayer = new YT.Player('youtube-video', {
-					events: {
-						'onReady': function(event) {
-							me._video_1.ggApiPlayerReady = true;
-						},
-						'onStateChange': function(event) {
-							if (event.data == 0 && me._video_1.ggMediaEnded) {
-								me._video_1.ggMediaEnded();
-							}
-							if (event.data == 1 && me._video_1.ggActivate) {
-								me._video_1.ggActivate();
-							}
-							if ((event.data == 0 || event.data == 2) && me._video_1.ggDeactivate) {
-								me._video_1.ggDeactivate();
-							}
-						}
-					}
-				});
-			}
+			var videoEl = player.registerVideoElement('Video 1', me._video_1__vid);
+			videoEl.autoplay = false;
+			player.changeVolume('Video 1', 0.0);
+			notifySeekbars();
 			me._video_1.ggVideoSource = media;
-			if (skin.ggYoutubeApiLoaded && skin.ggYoutubeApiLoaded == true) {me._video_1.ggYoutubeApiReady();}
 		}
 		el.ggId="Video 1";
 		el.ggDx=0;
@@ -6824,10 +6807,11 @@ function pano2vrSkin(player,base) {
 		el.setAttribute('style',hs);
 		el.style.transformOrigin='50% 50%';
 		me._video_1.ggIsActive=function() {
-			if ((this.parentNode) && (this.parentNode.ggIsActive)) {
-				return this.parentNode.ggIsActive();
+			if (me._video_1__vid != null) {
+				return (me._video_1__vid.paused == false && me._video_1__vid.ended == false);
+			} else {
+				return false;
 			}
-			return false;
 		}
 		el.ggElementNodeId=function() {
 			if ((this.parentNode) && (this.parentNode.ggElementNodeId)) {
@@ -8886,7 +8870,7 @@ function pano2vrSkin(player,base) {
 		me.__4.logicBlock_visible();
 		me._imagepop.logicBlock_size();
 		me.__2.logicBlock_size();
-		me._video_1.ggInitMedia('_e5ZDLRGkMs');
+		me._video_1.ggInitMedia('');
 		if (me._video_1.ggApiPlayer) {
 			if (me._video_1.ggApiPlayerType == 'youtube') {
 				let youtubeMediaFunction = function() {
@@ -9590,13 +9574,3 @@ function pano2vrSkin(player,base) {
 		me.updateSize(me.divSkin);
 	}
 };
-function onYouTubeIframeAPIReady() {
-	setTimeout(function(){
-		var videoElements = document.querySelectorAll('.ggskin_video');
-		for (var i=0; i<videoElements.length; i++) {
-			if (videoElements[i].ggYoutubeApiReady) {
-				videoElements[i].ggYoutubeApiReady();
-			}
-		}
-	}, 1000);
-}
