@@ -56,9 +56,6 @@
       <image tilt="2.700" hidepinned="0" rotx="0.000" roty="10.000" height="37" fov="30.000" clickmode="0" id="주택지구" stretch="1.000" popbackmode="0" rotz="0.000" pan="-26.440" width="71" handcursor="0">
         <source url="media/19..png"/>
       </image>
-      <sound tilt="-1.000" nodechangekeep="1" level="1.000" field="90.000" pansize="10.000" startmutedmobile="0" id="_background" pan="-1.000" mode="0" tiltsize="10.000" ambientlevel="0.000" loop="1">
-        <source url="media/SellBuyMusic - Ending.mp3"/>
-      </sound>
     </media>
     <transition blendtime="1" zoomafteroutfov="40" zoomafterinfov="140" blendcolor="0x000000" zoomspeed="2" zoomfov="40" zoomoutpause="1" zoomin="0" enabled="1" zoomout="0" softedge="0" type="crossdissolve" delay="none"/>
     <autorotate horizonfromdefview="0" speed="0.030" returntohorizon="0.000" startloaded="0" noderandom="1" nodefilter="" useanimation="0" enabled="1" delay="5.00" nodedelay="0.00"/>
@@ -154,9 +151,6 @@
       <image tilt="-23.470" hidepinned="0" rotx="-21.000" roty="0.000" height="77" fov="19.000" clickmode="0" id="교육" stretch="1.000" popbackmode="0" rotz="0.000" pan="-335.510" width="95" handcursor="0">
         <source url="media/7..png"/>
       </image>
-      <sound tilt="-1.000" nodechangekeep="1" level="1.000" field="90.000" pansize="10.000" startmutedmobile="0" id="_background" pan="-1.000" mode="0" tiltsize="10.000" ambientlevel="0.000" loop="1">
-        <source url="media/SellBuyMusic - Ending.mp3"/>
-      </sound>
     </media>
     <transition blendtime="1" zoomafteroutfov="40" zoomafterinfov="140" blendcolor="0x000000" zoomspeed="2" zoomfov="40" zoomoutpause="1" zoomin="0" enabled="1" zoomout="0" softedge="0" type="crossdissolve" delay="none"/>
     <autorotate horizonfromdefview="0" speed="0.030" returntohorizon="0.000" startloaded="0" noderandom="1" nodefilter="" useanimation="0" enabled="1" delay="5.00" nodedelay="0.00"/>
